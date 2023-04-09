@@ -64,10 +64,9 @@ r'^http(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\
 
 Скрины
 
-<div class="row" align="center">
-  <img src="./docs/assets/tickets_select_all.png" width="375" alt="ModalBottomSheet success" style="margin-right: 30px;" />
-  <img src="./docs/assets/tickets_checkbox_selected.png" width="375" alt="ModalBottomSheet success" />
-</div>
+<p align="center">
+<img src="https://surf.ru/wp-content/themes/surf/assets/img/logo.svg" height="120" />
+</p>
 
 
 [здесь оставьте ссылки на скринкаст/скриншоты, можно в Github-репозитории или в отдельном облаке]
