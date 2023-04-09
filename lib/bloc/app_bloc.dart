@@ -37,7 +37,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<AppEventAddNewTicket>((event, emit) {   ///Добавляем новый билет
       ModalBottomSheet.showModal(  ///Показываем модалку
         context: event.context,
-        onAddButtonPressed: (url) {
+        onAddButtonPressed: (url) {  ///Вот тут может вызваться событие АppEventTicketStorage
           event.onAddButtonPressed(url);
         },
       );
@@ -58,26 +58,30 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         ));
       }
     });
-    on<AppEventTicketStorage>((event, emit) async {
+    on<AppEventTicketStorage>((event, emit) async {  ///Событие добавляет новый билет
       int icon = Random().nextInt(3);
       String name = DateTime.now().millisecondsSinceEpoch.toString();
+      ///Название не как просили, знаю((
       final ticketModel = TicketModel(
         icon: icon,
         url: event.url,
         name: name,
         progress: 0,
       );
+      ///Добавляем новый билет в Hive
       await _ticketsBox.add(ticketModel);
       final Iterable<TicketModel> ticketModels = _ticketsBox.values.cast();
       List<double> progress =
           ticketModels.map((e) => e.progress.toDouble()).toList();
       List<String> status = ticketModels.map((e) => e.status).toList();
+      ///Эмитим экран с новыми билетами
       emit(AppStateDataExists(
         ticketModels: ticketModels,
         progress: progress,
         status: status,
       ));
     });
+
     on<AppEventLoading>((event, emit) async {
       Iterable<TicketModel> ticketModels = _ticketsBox.values.cast();
       List<double> progress =
