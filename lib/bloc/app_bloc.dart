@@ -18,18 +18,15 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   final _ticketsBox = Hive.box('tickets_box');
 
   AppBloc() : super(AppInitial()) {
-    on<AppEventInitialize>((event, emit) {
-      _ticketsBox.clear();
-      final Iterable<TicketModel> ticketModels = _ticketsBox.values.cast();
-      if (ticketModels.length == 0) {
-        emit(const AppStateNoData());
+    on<AppEventInitialize>((event, emit) {  ///Заходим в приложение
+      final Iterable<TicketModel> ticketModels = _ticketsBox.values.cast();  ///Выгружаем из всё из Hive
+      if (ticketModels.length == 0) {   ///Проверяем, есть ли билеты
+        emit(const AppStateNoData());  /// Если нет, то эмитим пустой экран
       } else {
-        final Iterable<TicketModel> ticketModels = _ticketsBox.values.cast();
-
         List<double> progress =
-            ticketModels.map((e) => e.progress.toDouble()).toList();
+            ticketModels.map((e) => e.progress.toDouble()).toList();  ///Создаем костыли, не успела продумать лучший вариант
         List<String> status = ticketModels.map((e) => e.status).toList();
-
+///Эмитим состояние, где экранчик с билетами
         emit(AppStateDataExists(
           ticketModels: ticketModels,
           progress: progress,
@@ -37,13 +34,14 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         ));
       }
     });
-    on<AppEventAddNewTicket>((event, emit) {
-      ModalBottomSheet.showModal(
+    on<AppEventAddNewTicket>((event, emit) {   ///Добавляем новый билет
+      ModalBottomSheet.showModal(  ///Показываем модалку
         context: event.context,
         onAddButtonPressed: (url) {
           event.onAddButtonPressed(url);
         },
       );
+      ///Ничего нового
       final Iterable<TicketModel> ticketModels = _ticketsBox.values.cast();
       if (ticketModels.isEmpty) {
         emit(const AppStateNoData());
@@ -52,6 +50,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         List<double> progress =
             ticketModels.map((e) => e.progress.toDouble()).toList();
         List<String> status = ticketModels.map((e) => e.status).toList();
+        ///Эмитим экран
         emit(AppStateDataExists(
           ticketModels: ticketModels,
           progress: progress,
@@ -86,7 +85,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       List<String> status = ticketModels.map((e) => e.status).toList();
       final dir = await getTemporaryDirectory();
       var dio = Dio();
-      print(event.ticketModel.url);
       await dio.download(
         event.ticketModel.url,
         '${dir.path}/${event.ticketModel.name}.pdf',
@@ -110,7 +108,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         status: Consts.downloading,
       );
 
-      _ticketsBox.delete(event.ticketModel.url);
       await _ticketsBox.put(event.ticketModel.url, ticketModel);
       ticketModels = _ticketsBox.values.cast();
       progress = ticketModels.map((e) => e.progress.toDouble()).toList();
