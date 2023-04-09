@@ -65,8 +65,8 @@ r'^http(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\
 Скрины
 
 <div class="row" align="center">
-  <img src="./docs/assets/modal_start.png" width="375" alt="ModalBottomSheet" style="margin-right: 30px;" />
-  <img src="./docs/assets/modal_empty.png" width="375" alt="ModalBottomSheet with keyboard" />
+  <img src="./docs/assets/tickets_select_all.png" width="375" alt="ModalBottomSheet success" style="margin-right: 30px;" />
+  <img src="./docs/assets/tickets_checkbox_selected.png" width="375" alt="ModalBottomSheet success" />
 </div>
 
 
