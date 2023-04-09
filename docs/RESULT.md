@@ -61,9 +61,9 @@ r'^http(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\
 
 # Ссылки на демонстрацию работы/скриншоты
 
-Вариант с ошибкой. Видео:
+Вариант с ошибкой. Видео:  https://drive.google.com/file/d/1rNnlNkc1XahpBXuwlVgEBM0si2Ak926Y/view?usp=sharing
 
-Вариант с поправленной ошибкой. Видео:
+Вариант с поправленной ошибкой. Видео:  https://drive.google.com/file/d/1r2RYA0rXq6DsnPmVYkIK23E4KaO7gals/view?usp=sharing
 
 Скрины
 
