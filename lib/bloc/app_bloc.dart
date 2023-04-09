@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
@@ -7,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:surf_flutter_study_jam_2023/consts/consts.dart';
 import 'package:surf_flutter_study_jam_2023/features/modal_bottom_sheet.dart';
 import 'package:surf_flutter_study_jam_2023/models/ticket_model.dart';
 
@@ -21,7 +21,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<AppEventInitialize>((event, emit) {
       _ticketsBox.clear();
       final Iterable<TicketModel> ticketModels = _ticketsBox.values.cast();
-      if (ticketModels.length==0) {
+      if (ticketModels.length == 0) {
         emit(const AppStateNoData());
       } else {
         final Iterable<TicketModel> ticketModels = _ticketsBox.values.cast();
@@ -107,7 +107,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         url: event.ticketModel.url,
         name: event.ticketModel.name,
         progress: 1,
-        status: 'Файл загружен',
+        status: Consts.downloading,
       );
 
       _ticketsBox.delete(event.ticketModel.url);

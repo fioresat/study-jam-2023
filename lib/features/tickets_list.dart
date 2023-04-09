@@ -4,7 +4,6 @@ import 'package:surf_flutter_study_jam_2023/bloc/app_bloc.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_card.dart';
 import 'package:surf_flutter_study_jam_2023/models/ticket_model.dart';
 
-
 ///Список Билетов
 class TicketsList extends StatelessWidget {
   final Iterable<TicketModel> ticketModels;

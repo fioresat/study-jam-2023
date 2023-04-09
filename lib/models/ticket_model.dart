@@ -1,7 +1,8 @@
-
 import 'package:hive/hive.dart';
+import 'package:surf_flutter_study_jam_2023/consts/consts.dart';
 
 part 'ticket_model.g.dart';
+
 ///Здесь храним модельку Билета и Заводим Hive
 @HiveType(typeId: 0)
 class TicketModel {
@@ -22,9 +23,9 @@ class TicketModel {
     String? url,
     int? progress,
     String? status,
-  })  : name = name ?? 'testTicket',
-        url = url ?? 'testUrl',
-        status = status ?? 'Ожидается загрузка',
+  })  : name = name ?? '',
+        url = url ?? '',
+        status = status ?? Consts.waitingForLoading,
         progress = progress ?? 0,
         icon = icon ?? 0;
 }

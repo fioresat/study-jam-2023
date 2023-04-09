@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:surf_flutter_study_jam_2023/consts/consts.dart';
 
 ///Кнопка "Добавить"
 class AddButton extends StatelessWidget {
@@ -17,7 +18,7 @@ class AddButton extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 50, top: 20),
       child: FilledButton(
         onPressed: isActive ? onAddButtonPressed : null,
-        child: const Text("Добавить"),
+        child: const Text(Consts.add),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:surf_flutter_study_jam_2023/consts/consts.dart';
 
 import 'add_button.dart';
 
@@ -45,7 +46,7 @@ class _ModalSheetContentState extends State<ModalSheetContent> {
                       Radius.circular(10.0),
                     ),
                   ),
-                  labelText: 'Введите url',
+                  labelText: Consts.labelUrl,
                 ),
               ),
             ),
@@ -56,7 +57,7 @@ class _ModalSheetContentState extends State<ModalSheetContent> {
                   Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
-                      content: Text('Ссылка успешно добавлена'),
+                      content: Text(Consts.success),
                     ),
                   );
                   widget.onAddButtonPressed(controller.text);
@@ -74,7 +75,7 @@ class _ModalSheetContentState extends State<ModalSheetContent> {
         .hasMatch(url!)) {
       return null;
     } else {
-      return 'Enter a valid url';
+      return Consts.errorUrl;
     }
   }
 }

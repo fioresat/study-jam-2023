@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:surf_flutter_study_jam_2023/consts/consts.dart';
 
 ///Экранчик, когда данных нет
 class EmptyWidget extends StatefulWidget {
@@ -11,6 +12,6 @@ class EmptyWidget extends StatefulWidget {
 class _EmptyWidgetState extends State<EmptyWidget> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Здесь пока ничего нет"),);
+    return const Center(child: Text(Consts.empty),);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:surf_flutter_study_jam_2023/bloc/app_bloc.dart';
+import 'package:surf_flutter_study_jam_2023/consts/consts.dart';
 import 'package:surf_flutter_study_jam_2023/features/no_data.dart';
 import 'package:surf_flutter_study_jam_2023/features/tickets_list.dart';
 
@@ -12,7 +13,7 @@ class TicketStoragePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Хранение билетов'),
+        title: const Text(Consts.ticketsStorage),
       ),
       body: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) {
@@ -43,7 +44,7 @@ class TicketStoragePage extends StatelessWidget {
                     }),
               );
         },
-        label: const Text('Добавить'),
+        label: const Text(Consts.add),
       ),
     );
   }
