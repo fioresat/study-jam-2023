@@ -64,9 +64,6 @@ r'^http(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\
 
 Скрины
 
-<p align="center">
-<img src="https://drive.google.com/file/d/1r5mxYWXVzR-pOXTFWPTFmPPqL7vXe8Mi/view?usp=sharing" height="120" />
-</p>
-
+<iframe src="https://drive.google.com/file/d/1r5mxYWXVzR-pOXTFWPTFmPPqL7vXe8Mi/preview" width="640" height="480" allow="autoplay"></iframe>
 
 [здесь оставьте ссылки на скринкаст/скриншоты, можно в Github-репозитории или в отдельном облаке]
